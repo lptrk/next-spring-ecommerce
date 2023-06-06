@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,9 +28,33 @@ public class ProductController {
         return (productService.getProductById(id));
     }
 
+    record newProductRequest(String name,
+                             String description,
+                             Double price,
+                             Integer categoryId,
+                             String imageUrl,
+                             Date createdAt,
+                             Date updatedAt) {
+    }
+
+    @PostMapping
+    public void addCustomer(@RequestBody newProductRequest request) {
+        ProductEty product = new ProductEty();
+        product.setName(request.name());
+        product.setDescription(request.description());
+        product.setPrice(request.price());
+        product.setCategoryId(request.categoryId());
+        product.setImageUrl(request.imageUrl());
+        product.setCreatedAt(request.createdAt());
+        product.setUpdatedAt(request.updatedAt());
+        productService.saveProduct(product);
+    }
+
     @PostMapping("products")
     public ResponseEntity<ProductEty> createProduct(@RequestBody ProductEty product) {
         return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);
     }
+
+
 }
 
