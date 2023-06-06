@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1")
+@RequestMapping("api/v1/")
 public class ProductController {
     private final ProductService productService;
 
@@ -37,17 +37,7 @@ public class ProductController {
                              Date updatedAt) {
     }
 
-    @PostMapping
-    public void addCustomer(@RequestBody newProductRequest request) {
-        ProductEty product = new ProductEty();
-        product.setName(request.name());
-        product.setDescription(request.description());
-        product.setPrice(request.price());
-        product.setImageUrl(request.imageUrl());
-        product.setCreatedAt(request.createdAt());
-        product.setUpdatedAt(request.updatedAt());
-        productService.saveProduct(product);
-    }
+
 
     @PostMapping("products")
     public ResponseEntity<ProductEty> createProduct(@RequestBody ProductEty product) {
