@@ -37,7 +37,6 @@ public class ProductController {
                              Date updatedAt) {
     }
 
-
     @PostMapping("products")
     public ResponseEntity<ProductEty> createProduct(@RequestBody ProductEty product) {
         return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);

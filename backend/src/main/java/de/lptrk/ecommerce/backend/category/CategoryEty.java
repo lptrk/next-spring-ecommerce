@@ -22,7 +22,13 @@ public class CategoryEty {
 
     @Override
     public String toString() {
-        return "CategoryEty{" + "id=" + id + ", name='" + name + '\'' + ", description='" + description + '\'' + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
+        return "CategoryEty{" +
+                "id=" + id + "," +
+                " name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
     }
 
     @Override
@@ -30,7 +36,11 @@ public class CategoryEty {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CategoryEty that = (CategoryEty) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(description, that.description) && Objects.equals(createdAt, that.createdAt) && Objects.equals(updatedAt, that.updatedAt);
+        return Objects.equals(id, that.id) &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(createdAt, that.createdAt) &&
+                Objects.equals(updatedAt, that.updatedAt);
     }
 
     @Override
@@ -88,5 +98,6 @@ public class CategoryEty {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
+
 }
 

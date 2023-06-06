@@ -2,5 +2,4 @@ package de.lptrk.ecommerce.backend.product;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ProductRepository extends JpaRepository<ProductEty, Integer> {
-}
+public interface ProductRepository extends JpaRepository<ProductEty, Integer> { }

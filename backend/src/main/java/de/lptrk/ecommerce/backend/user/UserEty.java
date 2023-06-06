@@ -19,14 +19,7 @@ public class UserEty {
 
     @Override
     public String toString() {
-        return "UserEty{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", createdAt=" + createdAt +
-                ", updatedAt=" + updatedAt +
-                '}';
+        return "UserEty{" + "id=" + id + ", userName='" + userName + '\'' + ", email='" + email + '\'' + ", password='" + password + '\'' + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
     }
 
     @Override

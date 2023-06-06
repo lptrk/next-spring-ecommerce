@@ -1,7 +1,5 @@
 package de.lptrk.ecommerce.backend.user;
 
-
-import org.apache.catalina.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,9 +27,7 @@ public class UserController {
         return userService.getUserById(id);
     }
 
-    record newUserRequest(String userName, String email, String password, Date createdAt, Date updatedAt) {
-
-    }
+    record newUserRequest(String userName, String email, String password, Date createdAt, Date updatedAt) { }
 
     @PostMapping("users")
     public ResponseEntity<UserEty> createUser(@RequestBody UserEty user) {

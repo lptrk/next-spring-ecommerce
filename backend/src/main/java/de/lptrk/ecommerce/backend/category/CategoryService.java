@@ -25,5 +25,4 @@ public class CategoryService {
         return categoryRepository.save(categoryEty);
     }
 
-
 }

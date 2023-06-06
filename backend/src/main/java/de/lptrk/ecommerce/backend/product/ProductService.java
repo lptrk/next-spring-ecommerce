@@ -20,16 +20,12 @@ public class ProductService {
     //TODO: Product not found Exception
 
     public Optional<ProductEty> getProductById(Integer id) {
-        try {
-            return productRepository.findById(id);
-        } catch (Exception e) {
-            throw e;
-        }
+        return productRepository.findById(id);
+
     }
 
     public ProductEty saveProduct(ProductEty p) {
         return productRepository.save(p);
     }
-
 
 }
