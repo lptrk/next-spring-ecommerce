@@ -25,7 +25,7 @@ public class ProductController {
 
     @GetMapping("products/{id}")
     public Optional<ProductEty> getProductById(@PathVariable("id") Integer id) {
-        return (productService.getProductById(id));
+        return productService.getProductById(id);
     }
 
     record newProductRequest(String name,
@@ -36,7 +36,6 @@ public class ProductController {
                              Date createdAt,
                              Date updatedAt) {
     }
-
 
 
     @PostMapping("products")
