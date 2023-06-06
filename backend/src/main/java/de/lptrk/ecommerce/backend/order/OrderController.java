@@ -1,5 +1,6 @@
 package de.lptrk.ecommerce.backend.order;
 
+import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
 import de.lptrk.ecommerce.backend.user.UserEty;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -26,8 +27,8 @@ public class OrderController {
     }
 
     @GetMapping("orders/{id}")
-    public Optional<OrderEty> getOrderById(String id) {
-        return orderService.getOrderById(id);
+    public ResponseEntity<OrderEty> getOrderById(String id) throws EntityNotFoundException {
+        return ResponseEntity.ok(orderService.getOrderById(id));
     }
 
     record newOrderRequest(

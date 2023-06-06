@@ -1,5 +1,6 @@
 package de.lptrk.ecommerce.backend.product;
 
+import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,9 +20,12 @@ public class ProductService {
 
     //TODO: Product not found Exception
 
-    public Optional<ProductEty> getProductById(Integer id) {
-        return productRepository.findById(id);
+    public ProductEty getProductById(Integer id) throws EntityNotFoundException {
+        var product = productRepository.findById(id);
 
+        if (product.isEmpty()) throw new EntityNotFoundException();
+
+        return product.get();
     }
 
     public ProductEty saveProduct(ProductEty p) {

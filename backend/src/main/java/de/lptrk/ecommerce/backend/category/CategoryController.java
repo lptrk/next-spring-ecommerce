@@ -1,6 +1,7 @@
 package de.lptrk.ecommerce.backend.category;
 
 
+import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -26,8 +27,8 @@ public class CategoryController {
     }
 
     @GetMapping("categories/{id}")
-    public Optional<CategoryEty> getCategoryById(@PathVariable("id") Integer id) {
-        return (categoryService.getCategoryById(id));
+    public ResponseEntity<CategoryEty> getCategoryById(@PathVariable("id") Integer id) throws EntityNotFoundException {
+        return ResponseEntity.ok(categoryService.getCategoryById(id));
     }
 
     record newCategoryRequest(

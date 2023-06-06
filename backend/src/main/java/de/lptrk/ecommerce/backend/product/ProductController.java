@@ -1,6 +1,7 @@
 package de.lptrk.ecommerce.backend.product;
 
 
+import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -24,8 +25,8 @@ public class ProductController {
     }
 
     @GetMapping("products/{id}")
-    public Optional<ProductEty> getProductById(@PathVariable("id") Integer id) {
-        return productService.getProductById(id);
+    public ResponseEntity<ProductEty> getProductById(@PathVariable("id") Integer id) throws EntityNotFoundException {
+        return ResponseEntity.ok(productService.getProductById(id));
     }
 
     record newProductRequest(String name,

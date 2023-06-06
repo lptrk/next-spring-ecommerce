@@ -1,5 +1,6 @@
 package de.lptrk.ecommerce.backend.category;
 
+import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,8 +18,11 @@ public class CategoryService {
         return categoryRepository.findAll();
     }
 
-    public Optional<CategoryEty> getCategoryById(Integer id) {
-        return categoryRepository.findById(id);
+    public CategoryEty getCategoryById(Integer id) throws EntityNotFoundException {
+
+        var category= categoryRepository.findById(id);
+        if(category.isEmpty()) throw new EntityNotFoundException();
+        return category.get();
     }
 
     public CategoryEty saveCategory(CategoryEty categoryEty) {

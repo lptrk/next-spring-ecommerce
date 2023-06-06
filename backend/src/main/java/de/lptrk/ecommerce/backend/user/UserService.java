@@ -1,10 +1,9 @@
 package de.lptrk.ecommerce.backend.user;
 
-import org.apache.catalina.User;
+import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService {
@@ -13,12 +12,18 @@ public class UserService {
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-    public List<UserEty>getUser(){
+
+    public List<UserEty> getUser() {
         return userRepository.findAll();
     }
 
-    public Optional<UserEty>getUserById(Integer id){
-        return userRepository.findById(id);
+    public UserEty getUserById(Integer id) throws EntityNotFoundException {
+
+        var user = userRepository.findById(id);
+
+        if (user.isEmpty()) throw new EntityNotFoundException();
+
+        return user.get();
     }
 
     public UserEty saveUser(UserEty u) {

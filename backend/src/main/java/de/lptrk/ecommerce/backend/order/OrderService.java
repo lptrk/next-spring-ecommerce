@@ -1,5 +1,6 @@
 package de.lptrk.ecommerce.backend.order;
 
+import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,8 +17,13 @@ public class OrderService {
         return orderRepository.findAll();
     }
 
-    public Optional<OrderEty>getOrderById(String id) {
-        return orderRepository.findById(id);
+    //wenn findby id == null => exception ansonsten return orderety
+    //@ControllerAdvice für exception
+
+    public OrderEty getOrderById(String id) throws EntityNotFoundException {
+        var order = orderRepository.findById(id);
+        if(order.isEmpty()) throw new EntityNotFoundException();
+        return order.get();
     }
 
     public OrderEty saveOrder(OrderEty orderEty) {
