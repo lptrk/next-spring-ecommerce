@@ -43,7 +43,6 @@ public class ProductController {
         product.setName(request.name());
         product.setDescription(request.description());
         product.setPrice(request.price());
-        product.setCategoryId(request.categoryId());
         product.setImageUrl(request.imageUrl());
         product.setCreatedAt(request.createdAt());
         product.setUpdatedAt(request.updatedAt());
@@ -55,6 +54,4 @@ public class ProductController {
         return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);
     }
 
-
 }
-
