@@ -4,12 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="270a503a-c1ab-44de-b8ef-ce866b0c3662" name="Changes" comment="added pre-made components">
+    <list default="true" id="270a503a-c1ab-44de-b8ef-ce866b0c3662" name="Changes" comment="init frontend with shadcn template">
       <change afterPath="$PROJECT_DIR$/../backend/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../backend/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/register/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/icons.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/icons.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/main-nav.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/main-nav.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/site-header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/site-header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/theme-toggle.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/theme-toggle.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/site.ts" beforeDir="false" afterPath="$PROJECT_DIR$/config/site.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +60,7 @@
       <option name="presentableId" value="Default" />
       <updated>1686232574888</updated>
       <workItem from="1686232577673" duration="134000" />
-      <workItem from="1686232727255" duration="1834000" />
+      <workItem from="1686232727255" duration="3944000" />
     </task>
     <task id="LOCAL-00001" summary="init frontend">
       <created>1686232814994</created>
@@ -78,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686233699523</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="init frontend with shadcn template">
+      <created>1686234820713</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1686234820713</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -88,6 +100,7 @@
     <MESSAGE value="init frontend" />
     <MESSAGE value="added shadcn ui-library" />
     <MESSAGE value="added pre-made components" />
-    <option name="LAST_COMMIT_MESSAGE" value="added pre-made components" />
+    <MESSAGE value="init frontend with shadcn template" />
+    <option name="LAST_COMMIT_MESSAGE" value="init frontend with shadcn template" />
   </component>
 </project>
