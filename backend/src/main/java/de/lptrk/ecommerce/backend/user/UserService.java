@@ -29,4 +29,17 @@ public class UserService {
     public UserEty saveUser(UserEty u) {
         return userRepository.save(u);
     }
+
+    public UserEty updateUser(UserEty u, Integer id) throws EntityNotFoundException {
+        var getUser = this.getUserById(id);
+        getUser.setUserName(u.getUserName());
+        getUser.setEmail(u.getEmail());
+        getUser.setPassword(u.getPassword());
+        getUser.setUpdatedAt(u.getUpdatedAt());
+        return getUser;
+    }
+
+    public void deleteUser(Integer id) {
+      return  userRepository.deleteById(id);
+    }
 }

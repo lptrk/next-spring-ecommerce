@@ -39,4 +39,13 @@ public class UserController {
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
     }
 
+    @PutMapping("users/{id}")
+    public ResponseEntity<UserEty> updateUser(@PathVariable Integer id, @RequestBody UserEty user) throws EntityNotFoundException {
+        return new ResponseEntity<>(userService.updateUser(user, id), HttpStatus.OK);
+    }
+
+    @DeleteMapping("users/{id}")
+    public void deleteUser(@PathVariable Integer id) {
+        userService.deleteUser(id);
+    }
 }
