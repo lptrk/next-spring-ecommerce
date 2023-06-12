@@ -5,7 +5,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -25,13 +24,6 @@ public class UserController {
     @GetMapping("users/{id}")
     public ResponseEntity<UserEty> getUserById(@PathVariable("id") Integer id) throws EntityNotFoundException {
         return ResponseEntity.ok(userService.getUserById(id));
-    }
-
-    record newUserRequest(String userName,
-                          String email,
-                          String password,
-                          Date createdAt,
-                          Date updatedAt) {
     }
 
     @PostMapping("users")
