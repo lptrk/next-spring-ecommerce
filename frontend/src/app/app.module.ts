@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { SharedButtonComponent } from './shared/components/shared-button/shared-button.component';
 import { SharedInputComponent } from './shared/components/shared-input/shared-input.component';
 import { SharedProductCardComponent } from './shared/components/shared-product-card/shared-product-card.component';
+import { SharedTurnBackComponent } from './shared/components/shared-turn-back/shared-turn-back.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SharedButtonComponent,
     SharedInputComponent,
-    SharedProductCardComponent
+    SharedProductCardComponent,
+    SharedTurnBackComponent
   ],
   imports: [
     BrowserModule,
