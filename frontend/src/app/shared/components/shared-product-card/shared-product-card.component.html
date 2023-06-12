@@ -1,0 +1,22 @@
+<div
+  class="w-[17rem] h-[25rem] rounded-2xl items-center text-center border border-slate-300 border-[0.5px] shadow-lg"
+>
+  <div class="w-[17rem] h-[15rem]">
+    <img
+      class="object-fill object-center h-[100%] rounded-t-2xl"
+      src={{cardImageUrl}}
+    />
+    <div class="h-[10rem] rounded-b-2xl bg-slate-50 text-center">
+      <p class="font-semibold pt-1 w-full h-10 text-lg">{{cardCaption}}</p>
+      <div class="flex justify-center">
+        <div class="border border-black w-[70%]"></div>
+      </div>
+      <div>
+        <p class="font-light">{{cardPrice}}€</p>
+      </div>
+      <div class="m-4">
+        <shared-button text="View" ></shared-button>
+      </div>
+    </div>
+  </div>
+</div>
