@@ -29,6 +29,9 @@ public class SecurityConfiguration {
                         .requestMatchers("/api/v1/auth/**", "/api/v1/categories/**", "/api/v1/products/**")
                         .permitAll()
                         .anyRequest().authenticated()
+                ).formLogin((form) -> form
+                        .loginPage("http://localhost:4200/login")
+                        .permitAll()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
