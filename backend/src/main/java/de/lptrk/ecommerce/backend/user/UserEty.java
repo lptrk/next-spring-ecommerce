@@ -1,97 +1,65 @@
 package de.lptrk.ecommerce.backend.user;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.Date;
 import java.util.Objects;
 
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
-public class UserEty {
+public class UserEty implements UserDetails {
     @Id
     @SequenceGenerator(name = "user_id_sequence", sequenceName = "user_id_sequence")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_id_sequence")
     private Integer id;
+    private String firstName;
+    private String lastName;
+    @Column(unique = true)
     private String userName;
+    @Column(unique = true)
     private String email;
     private String password;
     private Date createdAt;
     private Date updatedAt;
 
     @Override
-    public String toString() {
-        return "UserEty{" + "id=" + id + ", userName='" + userName + '\'' + ", email='" + email + '\'' + ", password='" + password + '\'' + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + '}';
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return null;
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserEty userEty = (UserEty) o;
-        return Objects.equals(id, userEty.id) && Objects.equals(userName, userEty.userName) && Objects.equals(email, userEty.email) && Objects.equals(password, userEty.password) && Objects.equals(createdAt, userEty.createdAt) && Objects.equals(updatedAt, userEty.updatedAt);
+    public String getUsername() {
+        return null;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(id, userName, email, password, createdAt, updatedAt);
+    public boolean isAccountNonExpired() {
+        return false;
     }
 
-    public Integer getId() {
-        return id;
+    @Override
+    public boolean isAccountNonLocked() {
+        return false;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return false;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Date getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Date getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public UserEty() {
-    }
-
-    public UserEty(Integer id, String userName, String email, String password, Date createdAt, Date updatedAt) {
-        this.id = id;
-        this.userName = userName;
-        this.email = email;
-        this.password = password;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+    @Override
+    public boolean isEnabled() {
+        return false;
     }
 }

@@ -32,7 +32,7 @@ public class UserService {
 
     public UserEty updateUser(UserEty u, Integer id) throws EntityNotFoundException {
         var getUser = this.getUserById(id);
-        getUser.setUserName(u.getUserName());
+        getUser.setUserName(u.getUsername());
         getUser.setEmail(u.getEmail());
         getUser.setPassword(u.getPassword());
         getUser.setUpdatedAt(u.getUpdatedAt());
