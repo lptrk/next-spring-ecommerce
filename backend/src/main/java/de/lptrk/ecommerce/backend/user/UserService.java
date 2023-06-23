@@ -4,22 +4,30 @@ import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final UserDTOMapper userDTOMapper;
 
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, UserDTOMapper userDTOMapper) {
         this.userRepository = userRepository;
+        this.userDTOMapper = userDTOMapper;
     }
 
-    public List<UserEty> getUser() {
-        return userRepository.findAll();
+    public List<UserDTO> getUsers() {
+        return userRepository.findAll()
+                .stream()
+                .map(userDTOMapper)
+                .collect(Collectors.toList()
+                );
     }
 
-    public UserEty getUserById(Integer id) throws EntityNotFoundException {
+    public UserDTO getUserById(Integer id) throws EntityNotFoundException {
 
-        var user = userRepository.findById(id);
+        var user = userRepository.findById(id)
+                .map(userDTOMapper);
 
         if (user.isEmpty()) throw new EntityNotFoundException();
 
@@ -30,14 +38,7 @@ public class UserService {
         return userRepository.save(u);
     }
 
-    public UserEty updateUser(UserEty u, Integer id) throws EntityNotFoundException {
-        var getUser = this.getUserById(id);
-        getUser.setUserName(u.getUsername());
-        getUser.setEmail(u.getEmail());
-        getUser.setPassword(u.getPassword());
-        getUser.setUpdatedAt(u.getUpdatedAt());
-        return getUser;
-    }
+
 
     public void deleteUser(Integer id) {
         userRepository.deleteById(id);

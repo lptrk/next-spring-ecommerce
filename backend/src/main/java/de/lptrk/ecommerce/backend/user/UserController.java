@@ -17,23 +17,18 @@ public class UserController {
     }
 
     @GetMapping("users")
-    public ResponseEntity<List<UserEty>> getUsers() {
-        return new ResponseEntity<>(userService.getUser(), HttpStatus.OK);
+    public ResponseEntity<List<UserDTO>> getUsers() {
+        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
     }
 
     @GetMapping("users/{id}")
-    public ResponseEntity<UserEty> getUserById(@PathVariable("id") Integer id) throws EntityNotFoundException {
+    public ResponseEntity<UserDTO> getUserById(@PathVariable("id") Integer id) throws EntityNotFoundException {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
     @PostMapping("users")
     public ResponseEntity<UserEty> createUser(@RequestBody UserEty user) {
         return new ResponseEntity<>(userService.saveUser(user), HttpStatus.CREATED);
-    }
-
-    @PutMapping("users/{id}")
-    public ResponseEntity<UserEty> updateUser(@PathVariable Integer id, @RequestBody UserEty user) throws EntityNotFoundException {
-        return new ResponseEntity<>(userService.updateUser(user, id), HttpStatus.OK);
     }
 
     @DeleteMapping("users/{id}")
