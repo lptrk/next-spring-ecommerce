@@ -2,6 +2,7 @@ package de.lptrk.ecommerce.backend.order;
 
 import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
 import de.lptrk.ecommerce.backend.user.UserEty;
+import jakarta.persistence.criteria.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -36,4 +37,13 @@ public class OrderController {
         return new ResponseEntity<>(orderService.saveOrder(orderEty), HttpStatus.CREATED);
     }
 
+    @PutMapping("orders/{id}")
+    public ResponseEntity<OrderEty> updateOrder(@PathVariable String id, @RequestBody OrderEty orderEty) throws EntityNotFoundException {
+        return new ResponseEntity<>(orderService.updateOrder(orderEty, id), HttpStatus.OK);
+    }
+
+    @DeleteMapping("orders/{id}")
+    public void deleteOrder(@PathVariable String id) {
+        orderService.deleteOrder(id);
+    }
 }

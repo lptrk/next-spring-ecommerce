@@ -29,4 +29,16 @@ public class CategoryService {
         return categoryRepository.save(categoryEty);
     }
 
+    public CategoryEty updateCategory(CategoryEty c, Integer id) throws EntityNotFoundException {
+        var getCategory = this.getCategoryById(id);
+        getCategory.setName(c.getName());
+        getCategory.setDescription(c.getDescription());
+        getCategory.setUpdatedAt(c.getUpdatedAt());
+        getCategory.setCreatedAt(c.getCreatedAt());
+        return getCategory;
+    }
+
+    public void deleteCategory(Integer id) {
+        categoryRepository.deleteById(id);
+    }
 }

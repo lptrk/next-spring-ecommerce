@@ -1,6 +1,7 @@
 package de.lptrk.ecommerce.backend.order;
 
 import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
+import de.lptrk.ecommerce.backend.product.ProductEty;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +31,21 @@ public class OrderService {
         return orderRepository.save(orderEty);
     }
 
+    public OrderEty updateOrder(OrderEty o , String id) throws EntityNotFoundException {
+        var getOrder = this.getOrderById(id);
+        getOrder.setUser(o.getUser());
+        getOrder.setOrdeDate(o.getOrdeDate());
+        getOrder.setTotalAmount(o.getTotalAmount());
+        getOrder.setStatus(o.getStatus());
+        getOrder.setShippingAddress(o.getShippingAddress());
+        getOrder.setCreatedAt(o.getCreatedAt());
+        getOrder.setUpdatedAt(o.getUpdatedAt());
+        return getOrder;
+    }
+
+    public void deleteOrder(String id) {
+        orderRepository.deleteById(id);
+    }
 
 
 }

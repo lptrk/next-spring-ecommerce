@@ -6,10 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import javax.swing.text.html.Option;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("api/v1/")
@@ -42,6 +40,19 @@ public class CategoryController {
     @PostMapping("categories")
     public ResponseEntity<CategoryEty> createCategory(@RequestBody CategoryEty category) {
         return new ResponseEntity<>(categoryService.saveCategory(category), HttpStatus.CREATED);
+    }
+
+    @PutMapping("categories/{id}")
+    public ResponseEntity<CategoryEty> updateCategory(@PathVariable Integer id, @RequestBody CategoryEty categoryEty) throws EntityNotFoundException {
+        return new ResponseEntity<>(
+                categoryService.updateCategory(
+                        categoryEty, id)
+                , HttpStatus.OK);
+    }
+
+    @DeleteMapping("categories/{id}")
+    public void deleteCategory(@PathVariable Integer id) {
+        categoryService.deleteCategory(id);
     }
 }
 
