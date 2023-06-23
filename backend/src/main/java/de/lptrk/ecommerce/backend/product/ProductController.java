@@ -2,6 +2,7 @@ package de.lptrk.ecommerce.backend.product;
 
 
 import de.lptrk.ecommerce.backend.exception.EntityNotFoundException;
+import de.lptrk.ecommerce.backend.user.UserEty;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -29,18 +30,20 @@ public class ProductController {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
-    record newProductRequest(String name,
-                             String description,
-                             Double price,
-                             Integer categoryId,
-                             String imageUrl,
-                             Date createdAt,
-                             Date updatedAt) {
-    }
-
     @PostMapping("products")
     public ResponseEntity<ProductEty> createProduct(@RequestBody ProductEty product) {
         return new ResponseEntity<>(productService.saveProduct(product), HttpStatus.CREATED);
     }
+
+    @PutMapping("products/{id}")
+    public ResponseEntity<ProductEty> updateUser(@PathVariable Integer id, @RequestBody ProductEty product) throws EntityNotFoundException {
+        return new ResponseEntity<>(productService.updateProduct(product, id), HttpStatus.OK);
+    }
+
+    @DeleteMapping("products/{id}")
+    public void deleteUser(@PathVariable Integer id) {
+        productService.deleteProduct(id);
+    }
+
 
 }

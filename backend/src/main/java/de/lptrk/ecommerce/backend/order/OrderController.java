@@ -31,18 +31,6 @@ public class OrderController {
         return ResponseEntity.ok(orderService.getOrderById(id));
     }
 
-    record newOrderRequest(
-            String id,
-            UserEty user,
-            Date orderDate,
-            Double totalAmount,
-            String status,
-            String shippingAddress,
-            Date createdAt,
-            Date updatedAt
-    ) {
-    }
-
     @PostMapping("orders")
     public ResponseEntity<OrderEty> createOrder(@RequestBody OrderEty orderEty) {
         return new ResponseEntity<>(orderService.saveOrder(orderEty), HttpStatus.CREATED);
