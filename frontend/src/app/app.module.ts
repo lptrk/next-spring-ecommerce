@@ -7,6 +7,7 @@ import { SharedButtonComponent } from './shared/components/shared-button/shared-
 import { SharedInputComponent } from './shared/components/shared-input/shared-input.component';
 import { SharedProductCardComponent } from './shared/components/shared-product-card/shared-product-card.component';
 import { SharedTurnBackComponent } from './shared/components/shared-turn-back/shared-turn-back.component';
+import { RegisterComponent } from './feat/pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SharedTurnBackComponent } from './shared/components/shared-turn-back/sh
     SharedButtonComponent,
     SharedInputComponent,
     SharedProductCardComponent,
-    SharedTurnBackComponent
+    SharedTurnBackComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
