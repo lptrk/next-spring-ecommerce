@@ -8,6 +8,7 @@ import { SharedInputComponent } from './shared/components/shared-input/shared-in
 import { SharedProductCardComponent } from './shared/components/shared-product-card/shared-product-card.component';
 import { SharedTurnBackComponent } from './shared/components/shared-turn-back/shared-turn-back.component';
 import { RegisterComponent } from './feat/pages/register/register.component';
+import { LoginComponent } from './feat/pages/login/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RegisterComponent } from './feat/pages/register/register.component';
     SharedInputComponent,
     SharedProductCardComponent,
     SharedTurnBackComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
