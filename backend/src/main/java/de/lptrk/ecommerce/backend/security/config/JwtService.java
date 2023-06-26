@@ -36,7 +36,9 @@ public class JwtService {
         return buildToken(new HashMap<>(), userDetails);
     }
 
-    public String buildToken(Map<String, Object> extraClaims, UserDetails userDetails) {
+    public String buildToken(Map<String, Object> extraClaims, @org.jetbrains.annotations.NotNull UserDetails userDetails) {
+
+
         return Jwts
                 .builder()
                 .setClaims(extraClaims)

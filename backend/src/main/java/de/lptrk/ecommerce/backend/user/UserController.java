@@ -36,3 +36,12 @@ public class UserController {
         userService.deleteUser(id);
     }
 }
+//   {
+//        "firstname":"Patrik",
+//        "lastname":"Lakatos",
+//        "username":"lptrk",
+//        "email": "lakatos.p@gmx.de",
+//        "password": "Patrik"
+//        "createdAt": null,
+//        "updatedAt": null
+//    }
