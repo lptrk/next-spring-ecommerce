@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { loginUser } from 'src/app/types/loginUser';
 import { token } from 'src/app/types/token';
 import { environment } from 'src/environments/environment';
-import { endpoints } from 'src/app/core/http/api/paths';
+import { endpoints } from 'src/app/core/http/api/endpoints';
 @Injectable({ providedIn: 'root' })
 export class LoginService {
   constructor(private http: HttpClient, private router: Router) {}

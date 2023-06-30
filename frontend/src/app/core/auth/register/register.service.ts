@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { registerUser } from 'src/app/types/registerUser';
 import { token } from 'src/app/types/token';
-import { endpoints } from '../../http/api/paths';
+import { endpoints } from '../../http/api/endpoints';
 import { environment } from 'src/environments/environment';
 
 @Injectable({ providedIn: 'root' })
