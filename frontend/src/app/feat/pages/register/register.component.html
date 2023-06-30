@@ -7,26 +7,53 @@
     <p>Create an Account</p>
     <div class="h-[1px] w-[50vh] bg-black"></div>
   </div>
-  <form class="row-span-1 justify-center flex m-3">
+  <form
+    class="row-span-1 justify-center flex m-3 my-auto"
+    (ngSubmit)="onSubmit(f)"
+    #f="ngForm"
+  >
     <div class="flex flex-col w-[40%] rounded-2xl items-center">
-      <shared-input class="mt-2" type="text" placeholder="Name"></shared-input>
-      <shared-input class="m-2" type="text" placeholder="E-Mail"></shared-input>
-      <shared-input
-        class="mx-2"
+      <input
+        class="mt-2 caret-transparent px-2 py-2 rounded-md border border-slate-100 font-medium text-center shadow-md focus:bg-[#475569] focus:text-slate-50 focus:outline-none"
+        type="text"
+        placeholder="First Name"
+        [formControl]="firstname"
+        id="firstname"
+      /> <input
+      class="mt-2 caret-transparent px-2 py-2 rounded-md border border-slate-100 font-medium text-center shadow-md focus:bg-[#475569] focus:text-slate-50 focus:outline-none"
+      type="text"
+      placeholder="Last Name"
+      [formControl]="lastname"
+      id="lastname"
+    />
+      <input
+        class="m-2 caret-transparent px-2 py-2 rounded-md border border-slate-100 font-medium text-center shadow-md focus:bg-[#475569] focus:text-slate-50 focus:outline-none"
+        type="text"
+        placeholder="E-Mail"
+        [formControl]="email"
+        id="email"
+      />
+      <input
+        class="mx-2 caret-transparent px-2 py-2 rounded-md border border-slate-100 font-medium text-center shadow-md focus:bg-[#475569] focus:text-slate-50 focus:outline-none"
         type="text"
         placeholder="Username"
-      ></shared-input>
-      <shared-input
-        class="m-2"
+        [formControl]="username"
+      id="username"
+      />
+      <input
+        class="m-2 caret-transparent px-2 py-2 rounded-md border border-slate-100 font-medium text-center shadow-md focus:bg-[#475569] focus:text-slate-50 focus:outline-none"
         type="password"
         placeholder="Password"
-      ></shared-input>
-      <shared-button class="mx-2 my-auto" text="Register now"></shared-button>
+        [formControl]="password"
+      id="password"
+      />
+      <shared-button class="mx-2" text="Register now"></shared-button>
     </div>
   </form>
   <div class="row-span-1 text-center mt-4">
     <p class="font-sans">
-      Already have an Account? Log in <a routerLink="/login" class="text-blue-400">here</a>.
+      Already have an Account? Log in
+      <a routerLink="/login" class="text-blue-400">here</a>.
     </p>
   </div>
 </div>
