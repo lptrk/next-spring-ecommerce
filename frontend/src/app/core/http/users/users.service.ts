@@ -2,24 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { endpoints } from '../api/endpoints';
-import { order } from 'src/app/types/order';
+import { registerUser } from 'src/app/types/registerUser';
 
 @Injectable({ providedIn: 'root' })
-export class OrdersService {
+export class UsersService {
   constructor(private http: HttpClient) {}
-  allOrders: order[] = [];
+  allUsers: registerUser[] = [];
 
   getAll() {
     return this.http
-      .get<order[]>(`${environment.BASE_URL}/${endpoints.orders}`)
+      .get<registerUser[]>(`${environment.BASE_URL}/${endpoints.users}`)
       .subscribe((res) => {
-        this.allOrders = res;
+        this.allUsers = res;
       });
   }
 
   getById(id: Number) {
-    return this.http.get<order[]>(
-      `${environment.BASE_URL}/${endpoints.orders}/${id}`
+    return this.http.get<registerUser[]>(
+      `${environment.BASE_URL}/${endpoints.users}/${id}`
     );
   }
 }

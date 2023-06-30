@@ -11,7 +11,7 @@ export class CategoriesSerivce {
 
   getAll() {
     return this.http
-      .get<category[]>(`${environment.BASE_URL}/${endpoints.products}`)
+      .get<category[]>(`${environment.BASE_URL}/${endpoints.categories}`)
       .subscribe((res) => {
         this.allCategories = res;
       });
@@ -19,7 +19,7 @@ export class CategoriesSerivce {
 
   getById(id: Number) {
     return this.http.get<category[]>(
-      `${environment.BASE_URL}/${endpoints.products}/${id}`
+      `${environment.BASE_URL}/${endpoints.categories}/${id}`
     );
   }
 }
