@@ -22,4 +22,5 @@ export class UsersService {
       `${environment.BASE_URL}/${endpoints.users}/${id}`
     );
   }
+
 }
