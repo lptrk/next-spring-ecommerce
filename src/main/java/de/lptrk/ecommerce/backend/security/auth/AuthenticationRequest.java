@@ -1,3 +1,4 @@
+// Import required libraries and add annotations for class properties
 package de.lptrk.ecommerce.backend.security.auth;
 
 import lombok.AllArgsConstructor;
@@ -10,7 +11,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class AuthenticationRequest {
-    private String email;
-    String password;
+    private String email; // User's email
+    String password; // User's password
 }
-

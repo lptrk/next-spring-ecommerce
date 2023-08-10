@@ -1,5 +1,7 @@
+// Import required libraries and classes
 package de.lptrk.ecommerce.backend.security.config;
 
+import de.lptrk.ecommerce.backend.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,21 +25,22 @@ public class SecurityConfiguration {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final AuthenticationProvider authenticationProvider;
 
+    // Define security filter chain
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(AbstractHttpConfigurer::disable)
+                .csrf(AbstractHttpConfigurer::disable) // Disable CSRF protection
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/v1/auth/**", "/api/v1/categories/**", "/api/v1/products/**")
-                        .permitAll()
-                        .anyRequest().authenticated()
+                        .permitAll() // Allow access to specified endpoints without authentication
+                        .anyRequest().authenticated() // Require authentication for other endpoints
                 ).formLogin((form) -> form
-                        .loginPage("http://localhost:4200/register")
-                        .permitAll()
+                        .loginPage("http://localhost:4200/register") // Configure login page URL
+                        .permitAll() // Allow access to login page without authentication
                 )
-                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // Configure stateless sessions
+                .authenticationProvider(authenticationProvider) // Use the custom AuthenticationProvider
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class) // Add the custom JwtAuthenticationFilter
         ;
 
         return http.build();

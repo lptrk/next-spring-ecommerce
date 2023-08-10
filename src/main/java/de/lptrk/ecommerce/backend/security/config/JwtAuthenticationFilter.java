@@ -1,3 +1,4 @@
+// Import required libraries and classes
 package de.lptrk.ecommerce.backend.security.config;
 
 import jakarta.servlet.FilterChain;
@@ -21,20 +22,29 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtService jwtService;
     private final UserDetailsService userDetailsService;
 
+    // Override the doFilterInternal method to implement JWT authentication
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         final String authHeader = request.getHeader("Authorization");
         final String jwt;
         final String userEmail;
+
+        // Check if the Authorization header contains a JWT token
         if (authHeader == null || !authHeader.startsWith("Bearer ")) {
             filterChain.doFilter(request, response);
             return;
         }
+
+        // Extract the JWT token from the Authorization header
         jwt = authHeader.substring(7);
         userEmail = jwtService.extractUsername(jwt);
+
+        // Check if the JWT is valid and update the SecurityContextHolder if needed
         if (userEmail != null && SecurityContextHolder.getContext().getAuthentication() == null) {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(userEmail);
+
             if (jwtService.isTokenValid(jwt, userDetails)) {
+                // Create an AuthenticationToken and set it in the SecurityContextHolder
                 UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(
                         userDetails,
                         null,
@@ -44,11 +54,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         new WebAuthenticationDetailsSource().buildDetails(request)
                 );
                 SecurityContextHolder.getContext().setAuthentication(authToken);
-
             }
         }
+
         filterChain.doFilter(request, response);
     }
-
-
 }

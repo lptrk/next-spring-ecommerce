@@ -1,3 +1,4 @@
+// Import required libraries and add annotations for class properties
 package de.lptrk.ecommerce.backend.security.auth;
 
 import lombok.AllArgsConstructor;
@@ -12,11 +13,11 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 public class RegisterRequest {
-    private String firstName;
-    private String lastName;
-    private String userName;
-    private String email;
-    private String password;
-    private Date createdAt;
-    private Date updatedAt;
+    private String firstName; // User's first name
+    private String lastName; // User's last name
+    private String userName; // User's username
+    private String email; // User's email
+    private String password; // User's password
+    private Date createdAt; // Date of registration
+    private Date updatedAt; // Date of last update
 }
