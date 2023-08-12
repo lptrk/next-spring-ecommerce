@@ -8,9 +8,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class RestResponseEntityExceptionHandler {
 
     @ExceptionHandler(value = {EntityNotFoundException.class})
-    public ResponseEntity<?> handleNotFound() {
+    public ResponseEntity<Object> handleNotFound() {
         return ResponseEntity.notFound().build();
     }
-
 
 }
