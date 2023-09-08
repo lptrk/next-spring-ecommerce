@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
-@Entity
+@Entity(name="Category")
 public class CategoryEty {
     @Id
     @SequenceGenerator(name = "category_id_sequence", sequenceName = "category_id_sequence")
