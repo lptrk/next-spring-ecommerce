@@ -17,7 +17,7 @@ import java.util.Objects;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
+@Entity(name="User")
 public class UserEty implements UserDetails {
     @Id
     @SequenceGenerator(name = "user_id_sequence", sequenceName = "user_id_sequence")
