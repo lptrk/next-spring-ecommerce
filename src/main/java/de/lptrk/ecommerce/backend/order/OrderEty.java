@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 import java.util.Objects;
 
-@Entity
+@Entity(name="Order")
 public class OrderEty {
     @Id
     @SequenceGenerator(name = "order_id_sequence", sequenceName = "order_id_sequence")
