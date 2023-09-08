@@ -10,7 +10,7 @@ import java.util.Objects;
 
 import de.lptrk.ecommerce.backend.category.CategoryEty;
 
-@Entity
+@Entity(name="Product")
 public class ProductEty {
     @Id
     @SequenceGenerator(name = "product_id_sequence", sequenceName = "product_id_sequence", allocationSize = 1)
