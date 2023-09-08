@@ -1,5 +1,6 @@
 package de.lptrk.ecommerce.backend.user;
 
+import org.apache.catalina.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

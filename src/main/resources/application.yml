@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url:
-    username:
-    password:
+    url: jdbc:postgresql://ep-dawn-cherry-665397.eu-central-1.aws.neon.tech/spring-ecommerce-api?user=lptrk&password=2kNRwvGeJD8x
+    username: lptrk
+    password: 2kNRwvGeJD8x
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
